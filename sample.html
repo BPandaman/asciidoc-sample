@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.22">
+<title>Asciidocサンプル</title>
+<style>
+@page {
+    margin: 20mm 20mm 20mm 20mm;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Hiragino Mincho ProN";
+    font-size: 12pt;
+    text-align: justify;
+}
+
+@media screen {
+    body {
+        background: #606060;
+    }
+}
+
+#header {
+    display: none;
+}
+
+#footer {
+    display: none;
+}
+
+.sect1 {
+    page-break-before: always;
+}
+
+@media screen {
+
+    .sect1,
+    #preamble {
+        width: 210mm;
+        min-height: 297mm;
+        background: #ffffff;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20mm;
+        margin-bottom: 10mm;
+    }
+}
+
+@media screen {
+    #preamble {
+        width: 210mm;
+        min-height: 297mm;
+        background: #ffffff;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20mm;
+        margin-bottom: 10mm;
+    }
+}
+
+h2 {
+    font-weight: normal;
+    border-bottom: 1pt solid black;
+    font-size: 18pt;
+    margin: 0;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+h3 {
+    font-weight: normal;
+    font-size: 14pt;
+    margin: 0;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+h4 {
+    font-weight: normal;
+    font-size: 12pt;
+    margin: 0;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+p {
+    margin: 0;
+    margin-bottom: 1rem;
+    padding: 0;
+    color: #1a1a1a;
+}
+
+.olist ol {
+    list-style: none;
+    margin: 0;
+    margin-left: 1rem;
+    padding: 0;
+    color: #1a1a1a;
+}
+
+.olist p {
+    display: inline;
+    color: #1a1a1a;
+}
+
+ol.arabic {
+    counter-reset: ol1;
+    margin-left: 0;
+    margin-bottom: 1rem;
+    border: 1pt solid black;
+    padding: 1rem;
+    color: #1a1a1a;
+}
+
+ol.arabic>li {
+    counter-increment: ol1;
+}
+
+ol.arabic>li:before {
+    content: "(" counter(ol1) ")";
+}
+
+ol.loweralpha {
+    counter-reset: ol2;
+}
+
+ol.loweralpha>li {
+    counter-increment: ol2;
+}
+
+ol.loweralpha>li:before {
+    content: "(" counter(ol1) "." counter(ol2) ")";
+}
+
+ol.lowerroman {
+    counter-reset: ol3;
+}
+
+ol.lowerroman>li {
+    counter-increment: ol3;
+}
+
+ol.lowerroman>li:before {
+    content: "(" counter(ol1) "." counter(ol2) "." counter(ol3) ")";
+}
+
+ol.upperalpha {
+    counter-reset: ol4;
+}
+
+ol.upperalpha>li {
+    counter-increment: ol4;
+}
+
+ol.upperalpha>li:before {
+    content: "(" counter(ol1) "." counter(ol2) "." counter(ol3) "." counter(ol4) ")";
+}
+
+ol.upperroman {
+    counter-reset: ol5;
+}
+
+ol.upperroman>li {
+    counter-increment: ol5;
+}
+
+ol.upperroman>li:before {
+    content: "(" counter(ol1) "." counter(ol2) "." counter(ol3) "." counter(ol4) "." counter(ol5) ")";
+}
+
+img {
+    width: 100%;
+    border: 1pt solid black;
+}
+
+.imageblock {
+    text-align: center;
+}
+
+.imageblock .title {
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    border: 1pt solid black;
+    border-bottom: 3pt double black;
+    text-align: left;
+    font-weight: normal;
+    padding: 0.25rem;
+}
+
+td {
+    border: 1pt solid black;
+    padding: 0.25rem;
+}
+
+td p {
+    margin: 0;
+    padding: 0;
+}
+
+pre {
+    border: 1pt solid black;
+    padding: 1rem;
+}
+
+code {
+    font-family: "Hiragino Mincho ProN";
+}
+
+body {
+    counter-reset: h2;
+}
+
+h2 {
+    counter-increment: h2;
+    counter-reset: h3;
+}
+
+h2:before {
+    content: counter(h2) ". ";
+}
+
+h3 {
+    counter-increment: h3;
+    counter-reset: h4;
+}
+
+h3:before {
+    content: counter(h2) "." counter(h3) ". ";
+}
+
+h4 {
+    counter-increment: h4;
+}
+
+h4:before {
+    content: counter(h2) "." counter(h3) "." counter(h4) ". ";
+}
+
+.cover-project p {
+    margin-top: 60mm;
+    text-align: center;
+    font-size: 24pt;
+    border-top: 1mm solid black;
+    margin-bottom: 0;
+    padding-top: 5mm;
+}
+
+.cover-document p {
+    text-align: center;
+    font-size: 24pt;
+    border-bottom: 1mm solid black;
+    padding-bottom: 5mm;
+}
+
+.cover-version p {
+    text-align: center;
+    font-size: 12pt;
+    padding-top: 1rem;
+}
+
+.cover-date p {
+    text-align: center;
+    font-size: 12pt;
+}
+
+.cover-company p {
+    text-align: center;
+    font-size: 18pt;
+    margin-top: 50mm;
+}
+
+.cover-address p {
+    text-align: center;
+    font-size: 12pt;
+    padding-top: 1rem;
+}
+
+.cover-tel p {
+    text-align: center;
+    font-size: 12pt;
+    margin-bottom: 0;
+}
+
+.cover-email p {
+    text-align: center;
+    font-size: 12pt;
+}
+
+.cover-email a {
+    color: black;
+    text-decoration: none;
+}
+</style>
+</head>
+<body class="article">
+<div id="header">
+<h1>Asciidocサンプル</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_はじめに">はじめに</a></li>
+<li><a href="#_asciidocの書き方">AsciiDocの書き方</a></li>
+<li><a href="#_markdownとの違い">Markdownとの違い</a>
+<ul class="sectlevel2">
+<li><a href="#_見出し">見出し</a></li>
+<li><a href="#_箇条書き">箇条書き</a></li>
+<li><a href="#_番号付きの箇条書き">番号付きの箇条書き</a></li>
+<li><a href="#_テーブル">テーブル</a></li>
+<li><a href="#_plantuml">PlantUML</a></li>
+<li><a href="#_graphviz">graphviz</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_はじめに">はじめに</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>AsciiDoc、graphviz、PlantUMLを使ってソフトウェアの仕様書を作るためのサンプルです。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asciidocの書き方">AsciiDocの書き方</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Markdownを書いたことがあれば似たような感じでかけます。困ったら以下を参考にどう書くのか調べながら書いていけばよいと思います。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://takumon.github.io/asciidoc-syntax-quick-reference-japanese-translation/">Asciidoctor 文法クイックリファレンス(日本語訳)</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_markdownとの違い">Markdownとの違い</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>違いは以下にまとめられています。
+<a href="https://asciidoctor.org/docs/asciidoc-vs-markdown/">AsciiDoc vs Markdown, asciidoctor docs</a></p>
+</div>
+<div class="paragraph">
+<p>よく使用し、Markdownと書き方が違うものを示す</p>
+</div>
+<div class="sect2">
+<h3 id="_見出し">見出し</h3>
+<div class="paragraph">
+<p>Markdownでは#で記述するがasciidocでは=を使用する。
+Markdownと同じで=の数でレベルを表現する</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_箇条書き">箇条書き</h3>
+<div class="paragraph">
+<p>Markdownでは-で記述するがasciidocでは*を使用する。
+箇条書きの字下げはMarkdownでは字下げして-であったが、asciidocでは*の数で表現する。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>箇条書き1</p>
+</li>
+<li>
+<p>箇条書き2</p>
+<div class="ulist">
+<ul>
+<li>
+<p>１段下げ</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2段下げ</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_番号付きの箇条書き">番号付きの箇条書き</h3>
+<div class="paragraph">
+<p>Markdownでは数値. でasciidocでは.を使用する。.の数で字下げ</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>番号付き1</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>1段下げ</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>2段下げ</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_テーブル">テーブル</h3>
+<div class="paragraph">
+<p>テーブルは|===で始めて|===で終わるブロック内に書きます。
+行の終わりの|は不要です。
+ヘッダはヘッダとデータの行の間に空白を入れるか、ブロックの頭にオプションでヘッダを指定します。
+オプションの指定で幅の自動調整も一緒にしたりするのでブロックの頭にオプション指定したほうが良いでしょう。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>[options="header,autowidth"]
+|===
+|col1|col2|col3
+|data1|data2|data3
+|===
+
+もしくは
+
+|===
+|col1|col2|col3
+
+|data1|data2|data3
+|===</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">col1</th>
+<th class="tableblock halign-left valign-top">col2</th>
+<th class="tableblock halign-left valign-top">col3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data3</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Excelであるセルの結合のようなことも出来ます。</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<caption class="title">Table 1. 結合表</caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">col1</th>
+<th class="tableblock halign-left valign-top">col2</th>
+<th class="tableblock halign-left valign-top">col3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">数値のあとに+を書くと横の結合</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">.数値+だと縦結合</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2-3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3-2</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_plantuml">PlantUML</h3>
+<div class="paragraph">
+<p>asciidoc-diagramを使用すると、PlantUMLを直接書けます。
+(画像を勝手に作って挿入してくれる。)</p>
+</div>
+<div class="paragraph">
+<p>別ファイルにしてincludeで使う方が良いでしょう</p>
+</div>
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNpLzkksLlYoSc1JzS-ILyktKslJ5UqGiIE5xZm5XCiyCrp2CCkFK4WXDfOf7lr2tH_Hk91LHjdNetnQ-LipGwDtIScV" alt="PlantUMLの例１">
+</div>
+<div class="title">Figure 1. PlantUMLの例１</div>
+</div>
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNpLTC7JL1J43LzscfOex03bgKRCYrFCaXFqEReIUNC1A0qufdy04XHTksfNmxWsULiPG2c-burmQlGhC9QC0moFAJyoMAw=" alt="PlantUMLの例２">
+</div>
+<div class="title">Figure 2. PlantUMLの例２</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_graphviz">graphviz</h3>
+<div class="paragraph">
+<p>graphvizのノードのグラフも直接書けます。
+別ファイルにしてincludeで使う方が良いでしょう</p>
+</div>
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/graphviz/svg/eNp9jsFuwjAMhu97ishnYJRyQ-G6y067cEATCrGh0ZykSsKmbeLdaZsiFajwzZ_t3x-aY1B1Jd7E_4toKij3hSbI949V1x-8S05ZkhCVi9NIwRwgj2pyPwZTJWE-K3pGeCSx1d5acknCxjBqFbDjMOlWco3m3i9E80eymA-x9uxD1BW1p3s-USzhYS4X90kZl5_Z0nlsLAcKT76XN9gw5ygo4LnWckQLFjAuBrfbMf1yk9N-I4ReGtIpJKZoLFwBMfl6l_k4FNP18FCILas9sexZ8aot7r6J2yfnCwbfklk=" alt="turtlesimノードグラフ">
+</div>
+<div class="title">Figure 3. turtlesimノードグラフ</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2024-09-24 22:57:29 +0900
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.PlantUMLの例１
+[plantuml]
+----
+class teleop_turtle
+class turtlesim
+teleop_turtle -> turtlesim : 速度司令を送る
+----
+.PlantUMLの例２
+[plantuml]
+----
+actor ユーザー as user
+user -> ログイン : ログインする
+ログイン --> user:
+----
